@@ -14,8 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meal App',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+          primarySwatch: Colors.green,
+          fontFamily: "RobotoCondensed",
+          textTheme: ThemeData.light().textTheme.copyWith(
+              bodyMedium: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              bodySmall: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              titleLarge: const TextStyle(
+                  fontSize: 20,
+                  fontFamily: "RobotoCondensed",
+                  fontWeight: FontWeight.bold))),
       home: const Dashboard(),
     );
   }
