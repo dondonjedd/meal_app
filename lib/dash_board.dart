@@ -19,7 +19,7 @@ class Dashboard extends StatelessWidget {
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
         children: DUMMY_CATEGORIES.map((cat) {
-          return CategoryItem(cat.title, cat.color);
+          return CategoryItem(cat);
         }).toList(),
       ),
     );
