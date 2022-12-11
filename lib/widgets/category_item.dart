@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/models/food_category.dart';
 
+import '../dummy_data.dart';
 import 'category_page.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -24,18 +25,31 @@ class CategoryItem extends StatelessWidget {
       onTap: () => openCategoryPage(context),
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
-      child: Container(
-        padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-              foodCategory.color.withOpacity(0.7),
-              foodCategory.color,
-            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-            borderRadius: BorderRadius.circular(15)),
-        child: Text(
-          foodCategory.title,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.network(
+                (DUMMY_MEALS.firstWhere(
+                    (el) => el.categories.contains(foodCategory.id))).imageUrl,
+                height: 250,
+                width: double.infinity,
+                fit: BoxFit.cover),
+          ),
+          Container(
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  foodCategory.color.withOpacity(0.4),
+                  foodCategory.color,
+                ], begin: Alignment.bottomRight, end: Alignment.topLeft),
+                borderRadius: BorderRadius.circular(15)),
+            child: Text(
+              foodCategory.title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          )
+        ],
       ),
     );
   }
