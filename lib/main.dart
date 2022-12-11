@@ -16,11 +16,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meal App',
       theme: ThemeData(
-          primarySwatch: Colors.green,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.green,
+            accentColor: Colors.brown,
+          ),
           fontFamily: "RobotoCondensed",
           textTheme: ThemeData.light().textTheme.copyWith(
               bodyMedium: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-              bodySmall: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              bodySmall:
+                  const TextStyle(color: Color.fromARGB(255, 65, 21, 93)),
               titleLarge: const TextStyle(
                   fontSize: 20,
                   fontFamily: "RobotoCondensed",
@@ -30,9 +34,9 @@ class MyApp extends StatelessWidget {
         CategoryPage.routeName: (ctx) => const CategoryPage(),
         MealPage.routeName: (ctx) => const MealPage(),
       },
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (ctx) => const Dashboard());
-      },
+      // onGenerateRoute: (settings) {
+      //   return MaterialPageRoute(builder: (ctx) => const Dashboard());
+      // },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => const Dashboard());
       },
