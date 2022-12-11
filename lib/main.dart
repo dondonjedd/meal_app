@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/widgets/meal_page.dart';
 import 'dash_board.dart';
 import 'widgets/category_page.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (ctx) => const Dashboard(),
           CategoryPage.routeName: (ctx) => const CategoryPage(),
+          MealPage.routeName: (ctx) => const MealPage(),
         });
   }
 }

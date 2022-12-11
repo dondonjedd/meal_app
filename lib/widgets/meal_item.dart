@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/models/meal.dart';
+import 'package:meal_app/widgets/meal_page.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
 
   const MealItem({required this.meal, super.key});
 
-  void openMealPage() {}
+  void openMealPage(context) {
+    Navigator.of(context).pushNamed(MealPage.routeName, arguments: meal);
+  }
 
   String get diffcultyText {
     switch (meal.difficulty) {
@@ -37,7 +40,7 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: openMealPage,
+      onTap: () => openMealPage(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 4,
