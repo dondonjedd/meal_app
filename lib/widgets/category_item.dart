@@ -9,7 +9,8 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem(this.foodCategory, {super.key});
 
   void openCategoryPage(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(CategoryPage.routeName, arguments: foodCategory);
+    Navigator.of(ctx)
+        .pushNamed(CategoryPage.routeName, arguments: foodCategory);
 
     // for simple apps
     // Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
