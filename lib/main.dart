@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Meal App',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: Colors.green,
+            primarySwatch: Colors.blue,
             accentColor: Colors.brown,
           ),
           fontFamily: "RobotoCondensed",
