@@ -3,7 +3,10 @@ import 'package:meal_app/widgets/main_drawer.dart';
 
 class FilterPage extends StatefulWidget {
   static const routeName = "/filters";
-  const FilterPage({super.key});
+  Map<String, bool> currentFilters;
+
+  final Function(Map<String, bool>) setFilter;
+  FilterPage(this.setFilter, this.currentFilters, {super.key});
 
   @override
   State<FilterPage> createState() => _FilterPageState();
@@ -11,9 +14,28 @@ class FilterPage extends StatefulWidget {
 
 class _FilterPageState extends State<FilterPage> {
   bool _isGlutenFree = false;
-   bool _isVegan = false;
-   bool _isVegetarian = false;
-   bool _isLactoseFree = false;
+  bool _isVegan = false;
+  bool _isVegetarian = false;
+  bool _isLactoseFree = false;
+
+  @override
+  initState() {
+    super.initState();
+    _isGlutenFree = widget.currentFilters["gluten"]!;
+    _isVegan = widget.currentFilters["vegan"]!;
+    _isVegetarian = widget.currentFilters["vegetarian"]!;
+    _isLactoseFree = widget.currentFilters["lactose"]!;
+  }
+
+  saveAndSetFilters() {
+    Map<String, bool> filters = {
+      'gluten': _isGlutenFree,
+      "lactose": _isLactoseFree,
+      "vegan": _isVegan,
+      "vegetarian": _isVegetarian,
+    };
+    widget.setFilter(filters);
+  }
 
   Widget builSwitchListTile(Widget title, Widget subtitle, bool currentValue,
       Function(bool) updateValue) {
@@ -50,17 +72,15 @@ class _FilterPageState extends State<FilterPage> {
                   setState(() {
                     _isGlutenFree = newValue;
                   });
+                  saveAndSetFilters();
                 }),
-
-                builSwitchListTile(
-                    const Text("Vegan"),
-                    const Text("Only show vegan meals"),
-                    _isVegan, (newValue) {
+                builSwitchListTile(const Text("Vegan"),
+                    const Text("Only show vegan meals"), _isVegan, (newValue) {
                   setState(() {
                     _isVegan = newValue;
                   });
+                  saveAndSetFilters();
                 }),
-
                 builSwitchListTile(
                     const Text("Vegetarian"),
                     const Text("Only show vegetarian meals"),
@@ -68,8 +88,8 @@ class _FilterPageState extends State<FilterPage> {
                   setState(() {
                     _isVegetarian = newValue;
                   });
+                  saveAndSetFilters();
                 }),
-
                 builSwitchListTile(
                     const Text("Lactose Free"),
                     const Text("Only show lactose free meals"),
@@ -77,6 +97,7 @@ class _FilterPageState extends State<FilterPage> {
                   setState(() {
                     _isLactoseFree = newValue;
                   });
+                  saveAndSetFilters();
                 }),
               ],
             ))
