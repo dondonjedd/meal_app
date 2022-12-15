@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/models/food_category.dart';
-import 'package:meal_app/widgets/meal_item.dart';
+import 'package:meal_app/widgets/meal_for_a_category/meal_item.dart';
 
-import '../models/meal.dart';
+import '../../models/meal.dart';
 
 class CategoryPage extends StatelessWidget {
   static const routeName = "/category-page";

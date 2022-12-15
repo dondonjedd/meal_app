@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/dash_board.dart';
-import 'package:meal_app/widgets/favorites_page.dart';
-import 'package:meal_app/widgets/main_drawer.dart';
+import 'package:meal_app/main_screen/dash_board.dart';
+
+
+import 'favorites_page.dart';
+import 'main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});

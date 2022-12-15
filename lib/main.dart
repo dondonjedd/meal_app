@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/dummy_data.dart';
 import 'package:meal_app/models/meal.dart';
-import 'package:meal_app/widgets/filter_page.dart';
-import 'package:meal_app/widgets/meal_page.dart';
-import 'package:meal_app/widgets/tabs_screen.dart';
-import 'dash_board.dart';
-import 'widgets/category_page.dart';
+
+import 'package:meal_app/widgets/meal_for_a_category/meal_page.dart';
+
+import 'main_screen/dash_board.dart';
+import 'main_screen/filter_page.dart';
+import 'main_screen/tabs_screen.dart';
+import 'widgets/food_categories/category_page.dart';
 
 void main() {
   runApp(const MyApp());

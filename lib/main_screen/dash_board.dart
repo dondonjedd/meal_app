@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/dummy_data.dart';
-import 'widgets/category_item.dart';
+import '../widgets/food_categories/category_item.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
