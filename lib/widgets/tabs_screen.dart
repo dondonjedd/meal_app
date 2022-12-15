@@ -33,22 +33,22 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar:
           AppBar(title: Text(_pages[_selectedPageIndex]["title"] as String)),
       body: _pages[_selectedPageIndex]["page"] as Widget,
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: _selectPage,
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.cyan,
-          currentIndex: _selectedPageIndex,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-                // backgroundColor: Theme.of(context).colorScheme.primary,
-                icon: Icon(
-                  Icons.category_rounded,
-                ),
-                label: "Categories"),
-            BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorites")
-          ]),
+      // bottomNavigationBar: BottomNavigationBar(
+      //     onTap: _selectPage,
+      //     backgroundColor: Theme.of(context).colorScheme.primary,
+      //     unselectedItemColor: Colors.cyan,
+      //     selectedItemColor: Colors.white,
+      //     currentIndex: _selectedPageIndex,
+      //     type: BottomNavigationBarType.fixed,
+      //     items: const [
+      //       BottomNavigationBarItem(
+      //           // backgroundColor: Theme.of(context).colorScheme.primary,
+      //           icon: Icon(
+      //             Icons.category_rounded,
+      //           ),
+      //           label: "Categories"),
+      //       BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorites")
+      //     ]),
     );
     // DefaultTabController(
     //     length: 2,
